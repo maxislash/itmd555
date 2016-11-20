@@ -19,7 +19,7 @@ else
 
 	aws autoscaling create-auto-scaling-group --auto-scaling-group-name android --launch-configuration $LAUNCHCONFIGURATION --availability-zone us-west-2b --max-size 5 --min-size 0 --desired-capacity $COUNT
 
-	aws autoscaling attach-load-balancers --auto-scaling-group-name androido --load-balancer-names androidLB
+	aws autoscaling attach-load-balancers --auto-scaling-group-name android --load-balancer-names androidLB
 
 	echo "All done"
 fi
