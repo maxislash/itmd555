@@ -3,44 +3,6 @@
 
    require 'vendor/autoload.php';
 
-   $s3 = new Aws\S3\S3Client([
-    'version' => 'latest',
-    'region'  => 'us-west-2'
-   ]);
-
-   $buckets = array('raw-mde', 'finished-mde');
-   $keys = array('mountain', 'eartrumpet', 'Knuth');
-   $urls = array();
-
-   foreach($buckets as $bucket) {
-     foreach($keys as $key) {
-
-      $name = $key . '.jpg';
-
-      if($bucket == 'raw-mde') {
-         $name = $key . '-bw.jpg';
-      }
-
-      $path = '/home/ubuntu/mdescos/images/' . $name;
-
-     // Upload file to S3 bucket
-     $s3result = $s3->putObject([
-      'ACL' => 'public-read',
-      'Bucket' => $bucket,
-      'Key' => $name,
-      'Body' => fopen($path, 'r'),
-      'ContentType' => 'image/jpeg',
-      'StorageClass' => 'STANDARD'
-     ]);
-
-     // Retrieve URL of uploaded Object
-     $url=$s3result['ObjectURL'];
-     //echo "\n". "This is your URL: " . $url ."\n";
-     array_push($urls, $url);
-     //print_r($urls);
-     }
-   }
-
    use Aws\Rds\RdsClient;
    $client = RdsClient::factory(array(
         'version' => 'latest',
@@ -48,12 +10,12 @@
    ));
 
    $result = $client->describeDBInstances(array(
-        'DBInstanceIdentifier' => 'db-itmo544-mdescos',
+        'DBInstanceIdentifier' => 'db-nighters',
    ));
 
    $endpoint = $result->search('DBInstances[0].Endpoint.Address');
 
-   $link = mysqli_connect($endpoint,"mdescos","mdescos-password","school") or die("Error " . mysqli_error($link));
+   $link = mysqli_connect($endpoint,"nighter","nighter-password","nighters") or die("Error " . mysqli_error($link));
 
    /* check connection */
    if (mysqli_connect_errno()) {
@@ -61,7 +23,7 @@
        exit();
    }
 
-   $delete_table = 'DROP TABLE IF EXISTS items';
+   $delete_table = 'DROP TABLE IF EXISTS list';
    $del_tbl = $link->query($delete_table);
    if ($delete_table) {
         //echo "Table items has been deleted";
@@ -73,13 +35,9 @@
    $create_table = 'CREATE TABLE IF NOT EXISTS items  
    (
       id INT NOT NULL AUTO_INCREMENT,
-      email VARCHAR(255) NOT NULL,
-      phone VARCHAR(255) NOT NULL,
-      filename VARCHAR(255) NOT NULL,
-      s3rawurl VARCHAR(255) NOT NULL,
-      s3finishedurl VARCHAR(255) NOT NULL,
-      status INT NOT NULL,
-      receipt VARCHAR(255) NOT NULL,
+      name VARCHAR(255) NOT NULL,
+      city VARCHAR(255) NOT NULL,
+      music VARCHAR(255) NOT NULL,
       PRIMARY KEY(id)
    )';
 

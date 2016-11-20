@@ -4,7 +4,7 @@ echo "Hello" > /home/ubuntu/hello.txt
 
 #Install the libraries needed
 sudo apt-get update -y
-sudo apt-get install -y git apache2 php5 php5-mysql curl php5-curl zip unzip libapache2-mod-php5 python-pip
+sudo apt-get install -y git apache2  curl  zip unzip python-pip
 sudo pip install awscli --ignore-installed six
 
 #Install all the things needed to PHP
@@ -20,7 +20,7 @@ cp /itmd555/PHP/create-db.php /var/www/html
 
 #rm /var/www/html/index.html
 cd /var/www/html/
-php create-db.php
+#php create-db.php
 
 #Restart the apache server to be sure it's online
 sudo systemctl enable apache2
