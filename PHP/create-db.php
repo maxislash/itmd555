@@ -50,30 +50,20 @@
    }
 
    /* Prepared statement, stage 1: prepare */
-   if (!($stmt = $link->prepare("INSERT INTO items (id, email, phone, filename, s3rawurl, s3finishedurl, status, receipt) VALUES (NULL,?,?,?,?,?,?,?)"))) {
+   if (!($stmt = $link->prepare("INSERT INTO items (id, name, city, music) VALUES (NULL,?,?,?)"))) {
      //   echo "Prepare failed: (" . $mysqli->errno . ") " . $mysqli->error;
    }
 
-   $email = 'mdescos@hawk.iit.edu';
-   $phone = '3127316493';
-   $status = 0;
+   $names = array('1', '2', '3');
+   $cities = array('chi','eva','ny');
+   $musics = array('blues','rock','pop');
 
-   $filenames = array('mountain-bw.jpg', 'eartrumpet-bw.jpg', 'Knuth-bw.jpg', 'mountain.jpg','eartrumpet.jpg', 'Knuth.jpg');
+   foreach($names as $name) {
+     $cell = array_search($name, $names);
+     $city = $cities[$cell];
+     $music = $musics[$cell];
 
-   foreach($urls as $url) {
-     $cell = array_search($url, $urls);
-     $filename = $filenames[$cell];
-     if($cell < 3) {
-       $s3rawurl = $url;
-       $s3finishedurl = '';
-     }
-     else {
-       $s3rawurl= '';
-       $s3finishedurl = $url;
-     }
-     $receipt = md5($url);
-
-     $stmt->bind_param("sssssis",$email,$phone,$filename,$s3rawurl, $s3finishedurl, $status, $receipt);
+     $stmt->bind_param("sss",$name,$city,$music);
 
      if (!$stmt->execute()) {
         echo "Execute failed: (" . $stmt->errno . ") " . $stmt->error;
@@ -87,7 +77,7 @@
    $res = $link->use_result();
    //echo "Result set order...\n";
    while ($row = $res->fetch_assoc()) {
-      echo $row['id'] . " " . $row['email']. " " . $row['phone']. " " . $row['filename']. " " . $row['s3rawurl']. " " . $row['s3finishedurl']. " " . $row['status']. " " .$row['receipt'];
+      echo $row['id'] . " " . $row['name']. " " . $row['city']. " " . $row['music'];
       echo "\n \n";
    }
 
