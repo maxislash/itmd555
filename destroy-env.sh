@@ -27,4 +27,9 @@ aws autoscaling delete-auto-scaling-group --auto-scaling-group-name $GROUPNAME
 
 aws autoscaling delete-launch-configuration --launch-configuration-name $CONFIGURATIONNAME
 
+aws s3 rb s3://nighters --force
+
+aws rds delete-db-instance --db-instance-identifier db-nighters
+
+aws rds wait db-instance-deleted --db-instance-identifier db-nighters
 echo "All done"

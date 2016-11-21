@@ -54,7 +54,7 @@
      //   echo "Prepare failed: (" . $mysqli->errno . ") " . $mysqli->error;
    }
 
-   $names = array('1', '2', '3');
+   $names = array('apollo', 'frog', 'hop');
    $cities = array('chi','eva','ny');
    $musics = array('blues','rock','pop');
 

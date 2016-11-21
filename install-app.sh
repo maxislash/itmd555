@@ -4,7 +4,7 @@ echo "Hello" > /home/ubuntu/hello.txt
 
 #Install the libraries needed
 sudo apt-get update -y
-sudo apt-get install -y git apache2  curl  zip unzip python-pip php7.0-cli
+sudo apt-get install -y git apache2  curl  zip unzip python-pip php libapache2-mod-php php-curl php-mysql php-xml php-simplexml
 sudo pip install awscli --ignore-installed six
 
 #Install all the things needed to PHP
