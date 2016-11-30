@@ -20,8 +20,8 @@ cp /itmd555/PHP/create-db.php /var/www/html
 cp /itmd555/PHP/get_list.php /var/www/html
 
 #rm /var/www/html/index.html
-cd /var/www/html/
-php create-db.php
+#cd /var/www/html/
+#php create-db.php
 
 #Restart the apache server to be sure it's online
 sudo systemctl enable apache2

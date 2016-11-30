@@ -29,7 +29,7 @@ aws autoscaling delete-launch-configuration --launch-configuration-name $CONFIGU
 
 aws s3 rb s3://nighters --force
 
-aws rds delete-db-instance --db-instance-identifier db-nighter --skip-final-snapshot
+aws rds delete-db-instance --db-instance-identifier db-nighters --skip-final-snapshot
 
 aws rds wait db-instance-deleted --db-instance-identifier db-nighters
 echo "All done"
