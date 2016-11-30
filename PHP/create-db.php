@@ -54,9 +54,9 @@
      //   echo "Prepare failed: (" . $mysqli->errno . ") " . $mysqli->error;
    }
 
-   $names = array('apollo', 'frog', 'hop');
-   $cities = array('chi','eva','ny');
-   $musics = array('blues','rock','pop');
+   $names = array('Apollo', 'Frog', 'House of Parliament');
+   $cities = array('Chicago','Evanston','Chicago');
+   $musics = array('Blues','Blues','Rock');
 
    foreach($names as $name) {
      $cell = array_search($name, $names);
