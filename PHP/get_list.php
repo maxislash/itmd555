@@ -42,6 +42,7 @@
     $nightclub["name"] = $row["name"];
     $nightclub["city"] = $row["city"];
     $nightclub["music"] = $row["music"];
+    $nightclub["url"] = $row["url"];
 
      // push single product into final response array
      array_push($response["nightclubs"], $nightclub);
