@@ -10,13 +10,13 @@ require 'vendor/autoload.php';
 $response = array();
 
 // check for required fields
-if (isset($_POST['name']) && isset($_POST['city']) && isset($_POST['music'])) {
+if (isset($_POST['name']) && isset($_POST['city']) && isset($_POST['music']) && isset($_POST['url'])) {
 
     $name = $_POST['name'];
     $city = $_POST['city'];
     $music = $_POST['music'];
+    $url = $_POST['url'];
 
-    $url='';
 //   use Aws\Rds\RdsClient;
 
   // INSERT SQL record of job information
