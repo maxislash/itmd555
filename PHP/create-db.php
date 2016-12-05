@@ -53,10 +53,10 @@
      //   echo "Prepare failed: (" . $mysqli->errno . ") " . $mysqli->error;
    }
 
-   $names = array('Apollo', 'Frog', 'House of Parliament','Cock and Bull','Swenney Todd');
-   $cities = array('Chicago','Evanston','Chicago','Buffalo','Chicago');
-   $musics = array('Blues','Blues','Rock','Electro','Rock');
-   $urls = array('https://s3-us-west-2.amazonaws.com/nighters/apollo.jpg','https://s3-us-west-2.amazonaws.com/nighters/cock.jpg','https://s3-us-west-2.amazonaws.com/nighters/frog.jpg','https://s3-us-west-2.amazonaws.com/nighters/house.jpeg','https://s3-us-west-2.amazonaws.com/nighters/sweeney.jpeg');
+   $names = array('Apollo', 'Frog', 'House of Parliament','Cock and Bull','Sweeney Todd','Social25', 'The Apartment', 'Sidetrack', 'LA Social', 'Roscoes\'s','The Lucky Horseshoe', 'Steamworks', 'Kingston Mines');
+   $cities = array('Bordeaux','Bordeaux','Bordeaux','Bordeaux','Bordeaux', 'Chicago', 'Chicago', 'Chicago', 'Chicago','Chicago','Chicago','Chicago','Chicago');
+   $musics = array('Jazz','Rock','Electro','Rock','Jazz','Latino','RnB','Pop','Reggaeton','Piano Bar','Strip Tease','Sport','Blues' );
+   $urls = array('https://s3-us-west-2.amazonaws.com/nighters/apollo.jpg','https://s3-us-west-2.amazonaws.com/nighters/cock.jpg','https://s3-us-west-2.amazonaws.com/nighters/frog.jpg','https://s3-us-west-2.amazonaws.com/nighters/house.jpeg','https://s3-us-west-2.amazonaws.com/nighters/sweeney.jpeg','https://s3-us-west-2.amazonaws.com/nighters/social.jpg','https://s3-us-west-2.amazonaws.com/nighters/theapartment.jpg','https://s3-us-west-2.amazonaws.com/nighters/sidetrack.jpg','https://s3-us-west-2.amazonaws.com/nighters/lasocial.jpg','https://s3-us-west-2.amazonaws.com/nighters/roscoes.jpg','https://s3-us-west-2.amazonaws.com/nighters/theluckyhorseshoe.jpg','https://s3-us-west-2.amazonaws.com/nighters/steamworks.jpg','https://s3-us-west-2.amazonaws.com/nighters/kingstonmines.jpg');
 
    foreach($names as $name) {
      $cell = array_search($name, $names);
